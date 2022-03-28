@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hello_nav"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.someapp.MVVM.View.FirstTime.welcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_chooseSocial"
+            app:destination="@id/chooseSocial" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_mainMenu2"
+            app:destination="@id/mainMenu2" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseSocial"
+        android:name="com.example.someapp.MVVM.View.FirstTime.ChooseSocial"
+        android:label="fragment_choose_social"
+        tools:layout="@layout/fragment_choose_social" >
+        <action
+            android:id="@+id/action_chooseSocial_to_mainMenu2"
+            app:destination="@id/mainMenu2" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenu2"
+        android:name="com.example.someapp.MVVM.View.Fragments.MainMenu"
+        android:label="MainMenu"
+        tools:layout="@layout/fragment_main_menu">
+        <action
+            android:id="@+id/action_mainMenu2_to_inpurServiceValues"
+            app:destination="@id/inpurServiceValues" />
+    </fragment>
+    <fragment
+        android:id="@+id/inpurServiceValues"
+        android:name="com.example.someapp.MVVM.View.Fragments.InpurServiceValues"
+        android:label="fragment_inpur_service_values"
+        tools:layout="@layout/fragment_inpur_service_values" >
+        <argument
+            android:name="serviceArgs"
+            app:argType="com.example.someapp.MVVM.Model.ServicesModel" />
+        <action
+            android:id="@+id/action_inpurServiceValues_to_mainMenu2"
+            app:destination="@id/mainMenu2" />
+    </fragment>
+    <fragment
+        android:id="@+id/history2"
+        android:name="com.example.someapp.MVVM.View.Fragments.history"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+</navigation>
