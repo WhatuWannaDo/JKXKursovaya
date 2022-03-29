@@ -14,12 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.someapp.MVVM.Model.SavedPayments
 import com.example.someapp.MVVM.View.Fragments.Adapters.HistoryAdapter
-import com.example.someapp.MVVM.View.Fragments.Adapters.MainMenuAdapter
 import com.example.someapp.MVVM.ViewModel.SavedPaymentsViewModel
-import com.example.someapp.MVVM.ViewModel.ServicesViewModel
 import com.example.someapp.R
 import kotlinx.android.synthetic.main.fragment_history.view.*
-import kotlinx.android.synthetic.main.fragment_main_menu.view.*
 import kotlinx.android.synthetic.main.services_row.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

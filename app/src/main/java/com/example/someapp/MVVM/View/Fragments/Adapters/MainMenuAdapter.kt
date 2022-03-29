@@ -13,6 +13,8 @@ import com.example.someapp.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.fragment_main_menu.view.*
 import kotlinx.android.synthetic.main.services_row.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
 
@@ -35,6 +37,20 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
         holder.itemView.row.setOnClickListener {
             val action = MainMenuDirections.actionMainMenu2ToInpurServiceValues(list)
             holder.itemView.findNavController().navigate(action)
+        }
+
+
+        val dateT = "10.3.2022"
+        val sdf = SimpleDateFormat("dd.M.yyyy")
+        val currentDate = Calendar.getInstance().timeInMillis.toString()
+        val date : Date = sdf.parse(dateT)
+
+        if(currentDate.toLong() > date.time){
+            val calendar =  Calendar.getInstance()
+            calendar.set(2022, Calendar.MONTH + 1, 10)
+
+            val paymentDate = SimpleDateFormat("dd.M.yyyy").format((calendar.time) as Date)
+            holder.itemView.nextPayemntDate.text =  "Следующий платёж до " + paymentDate.toString()
         }
 
 
