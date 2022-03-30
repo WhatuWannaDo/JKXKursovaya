@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.someapp.MVVM.Model.SavedPayments
 import com.example.someapp.MVVM.ViewModel.SavedPaymentsViewModel

@@ -4,14 +4,11 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.someapp.MVVM.Model.ServicesModel
 import com.example.someapp.MVVM.View.Fragments.MainMenuDirections
 import com.example.someapp.R
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.fragment_main_menu.view.*
 import kotlinx.android.synthetic.main.services_row.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -47,7 +44,7 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
 
         if(currentDate.toLong() > date.time){
             val calendar =  Calendar.getInstance()
-            calendar.set(2022, Calendar.MONTH + 1, 10)
+            calendar.set(Calendar.YEAR+2021, Calendar.MONTH + 1, 10)
 
             val paymentDate = SimpleDateFormat("dd.M.yyyy").format((calendar.time) as Date)
             holder.itemView.nextPayemntDate.text =  "Следующий платёж до " + paymentDate.toString()

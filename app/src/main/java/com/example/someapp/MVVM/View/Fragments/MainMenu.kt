@@ -5,12 +5,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +17,6 @@ import com.example.someapp.MVVM.View.Fragments.Adapters.MainMenuAdapter
 import com.example.someapp.MVVM.ViewModel.ServicesViewModel
 import com.example.someapp.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.bottom_sheet_change_price.view.*
 import kotlinx.android.synthetic.main.fragment_main_menu.view.*
 import kotlinx.android.synthetic.main.services_row.view.*
@@ -31,7 +27,6 @@ class MainMenu : Fragment() {
     private val adapter = MainMenuAdapter()
     private lateinit var viewModel : ServicesViewModel
 
-    //TODO:  возможность удалять из истории поштучно с подтверждением и полностью. корреткировки в дизайне и все
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
