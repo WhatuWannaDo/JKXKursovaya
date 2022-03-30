@@ -41,7 +41,7 @@ class InpurServiceValues : Fragment() {
                 view.result.text = result + " руб."
             }
         }
-
+        //ввод данных о платеже
         view.saveValues.setOnClickListener {
             if(view.inputValues.length() > 5){
                 Toast.makeText(context, "Введите корректное значение", Toast.LENGTH_SHORT).show()

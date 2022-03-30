@@ -43,6 +43,7 @@ class history : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        // надпись "Здесь пока ничего нет"
         viewModel.getAllSavedPayments.observe(viewLifecycleOwner, Observer {
             adapter.setData(it)
             GlobalScope.launch(Dispatchers.IO) {
@@ -50,6 +51,7 @@ class history : Fragment() {
             }
         })
 
+        // удаление по одному элементу
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
             override fun onMove(
                 recyclerView: RecyclerView,
@@ -89,7 +91,7 @@ class history : Fragment() {
             }
         }
     }
-
+    // удаление всех платежей
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.top_menu, menu)
         val deleteAll = menu.findItem(R.id.deleteAll)

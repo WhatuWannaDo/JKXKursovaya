@@ -30,6 +30,7 @@ class ChooseSocial : Fragment() {
         val social : Boolean = view.physical.isChecked
         val uridical : Boolean = view.uridical.isChecked
 
+        //подготовка всех коммунальных услуг
         view.socialGroupNextButton.setOnClickListener {
 
             if((!view.physical.isChecked) && (!view.uridical.isChecked)){
