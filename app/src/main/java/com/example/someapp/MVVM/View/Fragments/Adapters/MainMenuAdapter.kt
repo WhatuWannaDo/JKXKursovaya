@@ -1,6 +1,7 @@
 package com.example.someapp.MVVM.View.Fragments.Adapters
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,17 +38,30 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
         }
 
 
-        val dateT = "10.3.2022"
-        val sdf = SimpleDateFormat("dd.M.yyyy")
+        val calendar =  Calendar.getInstance()
+        calendar.set(Calendar.YEAR+2021, Calendar.MONTH, 11)
+        val paymentDate = SimpleDateFormat("dd.M.yyyy").format((calendar.time) as Date)
+
+        val const = paymentDate
+        val formatter = SimpleDateFormat("dd.M.yyyy")
+        val _date_ : Date= formatter.parse(const)
+        val formatDate = _date_.time.toString()
+        var fDate = formatDate.toLong()
+
+
+
         val currentDate = Calendar.getInstance().timeInMillis.toString()
-        val date : Date = sdf.parse(dateT)
 
-        if(currentDate.toLong() > date.time){
-            val calendar =  Calendar.getInstance()
-            calendar.set(Calendar.YEAR+2021, Calendar.MONTH + 1, 10)
+        if(currentDate.toLong() > fDate){
+            while(currentDate.toLong() > fDate) {
+                fDate += 2629746000
+            }
+            val resultdate = Date(fDate).toString()
+            val form : SimpleDateFormat = SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy")
+            val parsedDate = form.parse(resultdate)
+            val outputPrint : SimpleDateFormat = SimpleDateFormat("dd.M.yyyy")
 
-            val paymentDate = SimpleDateFormat("dd.M.yyyy").format((calendar.time) as Date)
-            holder.itemView.nextPayemntDate.text =  "Следующий платёж до " + paymentDate.toString()
+            holder.itemView.nextPayemntDate.text =  "Следующий платёж до " + outputPrint.format(parsedDate)
         }
 
 
