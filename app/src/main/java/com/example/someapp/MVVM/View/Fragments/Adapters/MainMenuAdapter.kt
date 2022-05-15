@@ -53,7 +53,6 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
 
 
         val currentDate = Calendar.getInstance().timeInMillis.toString()
-        overdueCallback(list.name)
 
         if(currentDate.toLong() > fDate){
             overdueCallback(list.name)
