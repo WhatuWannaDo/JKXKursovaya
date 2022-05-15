@@ -18,6 +18,8 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
 
     private var serviceList = emptyList<ServicesModel>()
 
+    private lateinit var overdueCallback : (item : String) -> Unit
+
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -51,8 +53,10 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
 
 
         val currentDate = Calendar.getInstance().timeInMillis.toString()
+        overdueCallback(list.name)
 
         if(currentDate.toLong() > fDate){
+            overdueCallback(list.name)
             while(currentDate.toLong() > fDate) {
                 fDate += 2629746000
             }
@@ -75,5 +79,9 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
     fun setData(service : List<ServicesModel>){
         this.serviceList = service
         notifyDataSetChanged()
+    }
+
+    fun overdueListener(callback: (item: String) -> Unit){
+        overdueCallback = callback
     }
 }
