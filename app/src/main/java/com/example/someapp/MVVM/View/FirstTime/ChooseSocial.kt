@@ -35,7 +35,7 @@ class ChooseSocial : Fragment() {
                 Toast.makeText(context, "Вы не выбрали!", Toast.LENGTH_SHORT).show()
             }else{
                 if(view.uridical.isChecked){
-                    Toast.makeText(context,"Не забудьте о договоре коммунальных услуг",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Не забудьте о договоре коммунальных услуг",Toast.LENGTH_LONG).show()
                 }
                 val editorFinish = finishedPrefs.edit()
                 editorFinish.apply(){
