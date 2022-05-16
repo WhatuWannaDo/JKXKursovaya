@@ -55,9 +55,11 @@ class MainMenuAdapter : RecyclerView.Adapter<MainMenuAdapter.MyViewHolder>() {
         val currentDate = Calendar.getInstance().timeInMillis.toString()
 
         if(currentDate.toLong() > fDate){
-            overdueCallback(list.name)
             while(currentDate.toLong() > fDate) {
                 fDate += 2629746000
+            }
+            if(currentDate.toLong() > fDate){
+                overdueCallback(list.name)
             }
             val resultdate = Date(fDate).toString()
             val form : SimpleDateFormat = SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy")

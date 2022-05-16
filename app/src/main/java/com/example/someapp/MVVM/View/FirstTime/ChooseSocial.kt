@@ -25,10 +25,8 @@ class ChooseSocial : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_choose_social, container, false)
-        val sharedPreferences : SharedPreferences = requireContext().getSharedPreferences("socialGroup", MODE_PRIVATE)
         val finishedPrefs : SharedPreferences = requireContext().getSharedPreferences("welcome", MODE_PRIVATE)
-        val social : Boolean = view.physical.isChecked
-        val uridical : Boolean = view.uridical.isChecked
+
 
         //подготовка всех коммунальных услуг
         view.socialGroupNextButton.setOnClickListener {
@@ -36,15 +34,8 @@ class ChooseSocial : Fragment() {
             if((!view.physical.isChecked) && (!view.uridical.isChecked)){
                 Toast.makeText(context, "Вы не выбрали!", Toast.LENGTH_SHORT).show()
             }else{
-                val editor = sharedPreferences.edit()
-                editor.apply(){
-                    putBoolean("social", social)
-                    putBoolean("uridical", uridical)
-                }.apply()
-
-                if(sharedPreferences.getBoolean("uridical", false) == true){
-                    println("Не забудьте о договоре комунальных услуг")
-                    Toast.makeText(context,"Не забудьте о договоре комунальных услуг",Toast.LENGTH_SHORT).show()
+                if(view.uridical.isChecked){
+                    Toast.makeText(context,"Не забудьте о договоре коммунальных услуг",Toast.LENGTH_SHORT).show()
                 }
                 val editorFinish = finishedPrefs.edit()
                 editorFinish.apply(){
